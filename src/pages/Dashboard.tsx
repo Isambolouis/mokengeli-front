@@ -410,11 +410,11 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
   };
 
   return (
-    <div className="flex min-h-screen min-h-[100dvh] bg-slate-50">
+    <div className="flex min-h-screen min-h-[100dvh] bg-rb-page">
       {mobileNavOpen && (
         <button
           type="button"
-          className="fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-[2px] lg:hidden"
+          className="fixed inset-0 z-40 bg-rb-black/50 backdrop-blur-[2px] lg:hidden"
           aria-label="Fermer le menu"
           onClick={() => setMobileNavOpen(false)}
         />
@@ -518,12 +518,12 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
                     placeholder="Rechercher..." 
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="min-w-0 flex-1 px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm"
+                    className="min-w-0 flex-1 px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rb-yellow/50 text-sm"
                   />
                   <select 
                     value={typeFilter}
                     onChange={(e) => setTypeFilter(e.target.value)}
-                    className="px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm min-w-0 sm:min-w-[11rem]"
+                    className="px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rb-yellow/50 text-sm min-w-0 sm:min-w-[11rem]"
                   >
                     <option value="all">Tous les types</option>
                     <option value="Virement">Virement</option>
@@ -533,7 +533,7 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
                   <select 
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm min-w-0 sm:min-w-[11rem]"
+                    className="px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rb-yellow/50 text-sm min-w-0 sm:min-w-[11rem]"
                   >
                     <option value="all">Tous les statuts</option>
                     <option value="authorized">Autorisé</option>
@@ -545,8 +545,8 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
               
               {/* Filter results info */}
               {(searchQuery || typeFilter !== 'all' || statusFilter !== 'all') && (
-                <div className="mb-4 p-3 bg-blue-50 rounded-lg flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <span className="text-sm text-blue-800">
+                <div className="mb-4 p-3 bg-rb-yellow-muted rounded-lg flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <span className="text-sm text-rb-black">
                     Filtres actifs: {filteredTransactions.length} résultat(s) trouvé(s)
                   </span>
                   <button 
@@ -555,7 +555,7 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
                       setTypeFilter('all');
                       setStatusFilter('all');
                     }}
-                    className="text-sm text-blue-600 hover:text-blue-800"
+                    className="text-sm text-rb-yellow-dark hover:text-rb-black"
                   >
                     Réinitialiser les filtres
                   </button>
@@ -669,7 +669,7 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
                   <h3 className="text-lg font-semibold text-gray-800 mb-4">Répartition par canal</h3>
                   <div className="space-y-4">
                     {[
-                      { canal: 'Application Mobile', percentage: 45, color: 'bg-blue-500' },
+                      { canal: 'Application Mobile', percentage: 45, color: 'bg-rb-yellow' },
                       { canal: 'Web Banking', percentage: 30, color: 'bg-green-500' },
                       { canal: 'USSD', percentage: 15, color: 'bg-yellow-500' },
                       { canal: 'Agence', percentage: 10, color: 'bg-purple-500' },
@@ -691,10 +691,10 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
           )}
 
           {activeTab === 'clients' && (
-            <div className="bg-white rounded-xl border border-slate-200/80 shadow-sm p-4 sm:p-6">
+            <div className="bg-white rounded-xl border border-neutral-200/80 shadow-sm p-4 sm:p-6">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-4">
-                <h2 className="text-lg sm:text-xl font-semibold text-slate-900">Gestion des Clients</h2>
-                <button type="button" className="w-full sm:w-auto px-4 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-sm font-medium shrink-0 shadow-sm shadow-blue-600/20">
+                <h2 className="text-lg sm:text-xl font-semibold text-rb-black">Gestion des Clients</h2>
+                <button type="button" className="w-full sm:w-auto px-4 py-2.5 bg-rb-yellow text-rb-black rounded-lg hover:bg-rb-yellow-dark text-sm font-medium shrink-0 shadow-sm shadow-rb-yellow/25">
                   Ajouter un client
                 </button>
               </div>
@@ -704,7 +704,7 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
                   Rechercher un client
                 </label>
                 <svg
-                  className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400"
+                  className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -719,13 +719,13 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
                   onChange={(e) => setClientSearchQuery(e.target.value)}
                   placeholder="Rechercher par ID, nom, segment, statut ou score…"
                   autoComplete="off"
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50/80 py-2.5 pl-10 pr-10 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-xl border border-neutral-200 bg-rb-page/90 py-2.5 pl-10 pr-10 text-sm text-rb-black placeholder:text-neutral-400 outline-none transition focus:border-rb-yellow focus:bg-white focus:ring-2 focus:ring-rb-yellow/25"
                 />
                 {clientSearchQuery && (
                   <button
                     type="button"
                     onClick={() => setClientSearchQuery('')}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg p-1.5 text-neutral-400 hover:bg-rb-yellow-muted hover:text-neutral-700"
                     aria-label="Effacer la recherche"
                   >
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -736,7 +736,7 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
               </div>
 
               {qClients && (
-                <p className="mb-3 text-sm text-slate-500">
+                <p className="mb-3 text-sm text-neutral-500">
                   {filteredClients.length} résultat{filteredClients.length !== 1 ? 's' : ''}
                   {filteredClients.length === 0 && ' — essayez un autre terme'}
                 </p>
@@ -745,28 +745,28 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
               <div className="overflow-x-auto -mx-1 px-1 sm:mx-0 sm:px-0">
                 <table className="w-full min-w-[640px]">
                   <thead>
-                    <tr className="border-b border-slate-200 bg-slate-50/80">
-                      <th className="text-left py-3 px-3 sm:px-4 text-xs font-semibold uppercase tracking-wide text-slate-600 whitespace-nowrap">ID Client</th>
-                      <th className="text-left py-3 px-4 text-xs font-semibold uppercase tracking-wide text-slate-600">Nom</th>
-                      <th className="text-left py-3 px-4 text-xs font-semibold uppercase tracking-wide text-slate-600">Segment</th>
-                      <th className="text-left py-3 px-4 text-xs font-semibold uppercase tracking-wide text-slate-600">Score Moyen</th>
-                      <th className="text-left py-3 px-4 text-xs font-semibold uppercase tracking-wide text-slate-600">Statut</th>
-                      <th className="text-left py-3 px-4 text-xs font-semibold uppercase tracking-wide text-slate-600">Actions</th>
+                    <tr className="border-b border-neutral-200 bg-rb-page/90">
+                      <th className="text-left py-3 px-3 sm:px-4 text-xs font-semibold uppercase tracking-wide text-neutral-600 whitespace-nowrap">ID Client</th>
+                      <th className="text-left py-3 px-4 text-xs font-semibold uppercase tracking-wide text-neutral-600">Nom</th>
+                      <th className="text-left py-3 px-4 text-xs font-semibold uppercase tracking-wide text-neutral-600">Segment</th>
+                      <th className="text-left py-3 px-4 text-xs font-semibold uppercase tracking-wide text-neutral-600">Score Moyen</th>
+                      <th className="text-left py-3 px-4 text-xs font-semibold uppercase tracking-wide text-neutral-600">Statut</th>
+                      <th className="text-left py-3 px-4 text-xs font-semibold uppercase tracking-wide text-neutral-600">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {filteredClients.length === 0 ? (
                       <tr>
-                        <td colSpan={6} className="py-12 text-center text-sm text-slate-500">
+                        <td colSpan={6} className="py-12 text-center text-sm text-neutral-500">
                           Aucun client ne correspond à votre recherche.
                         </td>
                       </tr>
                     ) : (
                       filteredClients.map((client) => (
-                        <tr key={client.id} className="border-b border-slate-100 hover:bg-slate-50/80">
-                          <td className="py-3 px-4 text-sm font-medium text-slate-900">{client.id}</td>
-                          <td className="py-3 px-4 text-sm text-slate-800">{client.name}</td>
-                          <td className="py-3 px-4 text-sm text-slate-600">{client.segment}</td>
+                        <tr key={client.id} className="border-b border-neutral-100 hover:bg-rb-yellow-muted/40">
+                          <td className="py-3 px-4 text-sm font-medium text-rb-black">{client.id}</td>
+                          <td className="py-3 px-4 text-sm text-neutral-800">{client.name}</td>
+                          <td className="py-3 px-4 text-sm text-neutral-600">{client.segment}</td>
                           <td className="py-3 px-4 text-sm">
                             <span className={`px-2 py-1 rounded-full text-xs ${
                               client.score < 30 ? 'bg-green-100 text-green-800' :
@@ -786,7 +786,7 @@ export function Dashboard({ activeTab: initialTab }: DashboardProps) {
                             </span>
                           </td>
                           <td className="py-3 px-4">
-                            <button type="button" className="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                            <button type="button" className="text-rb-yellow-dark hover:text-rb-black text-sm font-medium">
                               Voir
                             </button>
                           </td>

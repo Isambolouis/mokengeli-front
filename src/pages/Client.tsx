@@ -260,16 +260,16 @@ export function Client() {
   // Profile selection view
   if (!isLoggedIn) {
     return (
-      <div className="min-h-screen min-h-[100dvh] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center p-4 sm:p-8 safe-area-pad">
+      <div className="min-h-screen min-h-[100dvh] bg-gradient-to-br from-rb-black via-rb-black-soft to-rb-black flex items-center justify-center p-4 sm:p-8 safe-area-pad">
         <div className="max-w-md w-full">
           <div className="text-center mb-6 sm:mb-8">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-blue-500 flex items-center justify-center mx-auto mb-4 shadow-xl">
-              <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-rb-yellow flex items-center justify-center mx-auto mb-4 shadow-xl shadow-rb-yellow/20">
+              <svg className="w-12 h-12 text-rb-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
             <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">MOKENGELI</h1>
-            <p className="text-sm sm:text-base text-blue-200 px-2">Simulateur Client - Démo Anti-Fraude</p>
+            <p className="text-sm sm:text-base text-neutral-300 px-2">Simulateur Client - Démo Anti-Fraude</p>
           </div>
 
           <div className="bg-white rounded-2xl shadow-2xl p-4 sm:p-6">
@@ -293,7 +293,7 @@ export function Client() {
                     setLoginNom(e.target.value);
                     setLoginError('');
                   }}
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  className="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 outline-none transition focus:border-rb-yellow focus:ring-2 focus:ring-rb-yellow/25"
                   placeholder="Ex. standard, risque, demo"
                 />
               </div>
@@ -311,7 +311,7 @@ export function Client() {
                     setLoginPassword(e.target.value);
                     setLoginError('');
                   }}
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                  className="w-full rounded-xl border border-gray-300 px-4 py-3 text-gray-900 outline-none transition focus:border-rb-yellow focus:ring-2 focus:ring-rb-yellow/25"
                   placeholder="••••••••"
                 />
               </div>
@@ -324,7 +324,7 @@ export function Client() {
 
               <button
                 type="submit"
-                className="w-full rounded-xl bg-blue-600 py-3 text-base font-semibold text-white shadow-md transition hover:bg-blue-700 active:bg-blue-800"
+                className="w-full rounded-xl bg-rb-yellow py-3 text-base font-semibold text-rb-black shadow-md transition hover:bg-rb-yellow-dark active:bg-rb-yellow-dark"
               >
                 Se connecter
               </button>
@@ -339,7 +339,7 @@ export function Client() {
             </p>
           </div>
 
-          <p className="text-center text-blue-300 text-sm mt-6">
+          <p className="text-center text-neutral-400 text-sm mt-6">
             Version démo - Hackathon RawBank 2026
           </p>
         </div>
@@ -348,29 +348,29 @@ export function Client() {
   }
 
   return (
-    <div className="min-h-screen min-h-[100dvh] bg-gray-50 safe-area-pad">
+    <div className="min-h-screen min-h-[100dvh] bg-rb-page safe-area-pad">
       {/* Header */}
-      <header className="bg-blue-600 text-white p-3 sm:p-4 shadow-lg">
+      <header className="bg-rb-black text-white p-3 sm:p-4 shadow-lg border-b border-rb-yellow/25">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between max-w-4xl mx-auto w-full">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 rounded-lg bg-blue-500 flex items-center justify-center">
-              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 rounded-lg bg-rb-yellow flex items-center justify-center">
+              <svg className="w-6 h-6 text-rb-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
             <div className="min-w-0">
               <h1 className="font-bold text-base sm:text-lg truncate">MOKENGELI</h1>
-              <p className="text-xs text-blue-200">Simulation Bancaire</p>
+              <p className="text-xs text-neutral-400">Simulation Bancaire</p>
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-2 sm:gap-4 sm:justify-end">
-            <span className="text-xs sm:text-sm bg-blue-700 px-3 py-1.5 rounded-full max-w-full truncate" title={selectedProfile}>
+            <span className="text-xs sm:text-sm bg-rb-black-muted px-3 py-1.5 rounded-full max-w-full truncate border border-rb-yellow/30" title={selectedProfile}>
               {userDisplayName}
             </span>
             <button 
               type="button"
               onClick={handleLogout}
-              className="text-xs sm:text-sm bg-blue-700 px-3 py-1.5 rounded-full hover:bg-blue-800 whitespace-nowrap"
+              className="text-xs sm:text-sm bg-rb-yellow text-rb-black px-3 py-1.5 rounded-full hover:bg-rb-yellow-dark whitespace-nowrap font-medium"
             >
               Déconnexion
             </button>
@@ -385,7 +385,7 @@ export function Client() {
             type="button"
             onClick={() => setCurrentView('dashboard')}
             className={`shrink-0 px-4 py-2 rounded-lg font-medium text-sm sm:text-base ${
-              currentView === 'dashboard' ? 'bg-blue-600 text-white' : 'bg-white text-gray-600'
+              currentView === 'dashboard' ? 'bg-rb-yellow text-rb-black' : 'bg-white text-gray-600'
             }`}
           >
             Tableau de bord
@@ -394,7 +394,7 @@ export function Client() {
             type="button"
             onClick={() => setCurrentView('new_transaction')}
             className={`shrink-0 px-4 py-2 rounded-lg font-medium text-sm sm:text-base ${
-              currentView === 'new_transaction' ? 'bg-blue-600 text-white' : 'bg-white text-gray-600'
+              currentView === 'new_transaction' ? 'bg-rb-yellow text-rb-black' : 'bg-white text-gray-600'
             }`}
           >
             Nouvelle opération
@@ -403,7 +403,7 @@ export function Client() {
             type="button"
             onClick={() => setCurrentView('history')}
             className={`shrink-0 px-4 py-2 rounded-lg font-medium text-sm sm:text-base ${
-              currentView === 'history' ? 'bg-blue-600 text-white' : 'bg-white text-gray-600'
+              currentView === 'history' ? 'bg-rb-yellow text-rb-black' : 'bg-white text-gray-600'
             }`}
           >
             Historique
@@ -413,19 +413,19 @@ export function Client() {
         {/* Dashboard View */}
         {currentView === 'dashboard' && (
           <div className="space-y-6">
-            <div className="rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-5 sm:p-6 text-white shadow-lg shadow-blue-900/20">
-              <p className="mb-4 text-sm text-blue-100">
+            <div className="rounded-2xl bg-gradient-to-br from-rb-black to-rb-black-muted p-5 sm:p-6 text-white shadow-lg shadow-rb-black/30 ring-1 ring-rb-yellow/20">
+              <p className="mb-4 text-sm text-neutral-300">
                 Bonjour,{' '}
-                <span className="font-semibold text-white">{userDisplayName}</span>
+                <span className="font-semibold text-rb-yellow-bright">{userDisplayName}</span>
               </p>
               <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <p className="text-sm font-medium text-blue-100">Solde du compte</p>
-                  <p className="mt-1 text-3xl font-bold tabular-nums tracking-tight sm:text-4xl">
-                    {accountBalance.toLocaleString('fr-FR')} <span className="text-lg font-semibold text-blue-100">FC</span>
+                  <p className="text-sm font-medium text-neutral-400">Solde du compte</p>
+                  <p className="mt-1 text-3xl font-bold tabular-nums tracking-tight sm:text-4xl text-rb-yellow-bright">
+                    {accountBalance.toLocaleString('fr-FR')} <span className="text-lg font-semibold text-neutral-300">FC</span>
                   </p>
                 </div>
-                <p className="text-xs text-blue-200 sm:max-w-xs sm:text-right">
+                <p className="text-xs text-neutral-400 sm:max-w-xs sm:text-right">
                   Solde disponible pour vos opérations (démo). Les virements autorisés mettent à jour ce solde.
                 </p>
               </div>
@@ -509,7 +509,7 @@ export function Client() {
                       setBalanceError('');
                       setFormData({ ...formData, montant: e.target.value });
                     }}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rb-yellow/50 focus:border-transparent"
                     placeholder="Entrez le montant"
                   />
                   <p className="mt-1 text-xs text-gray-500">Le montant ne peut pas dépasser votre solde disponible.</p>
@@ -525,7 +525,7 @@ export function Client() {
                   <select
                     value={formData.type_transaction}
                     onChange={(e) => setFormData({ ...formData, type_transaction: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rb-yellow/50 focus:border-transparent"
                   >
                     <option value="virement">Virement</option>
                     <option value="p2p">P2P</option>
@@ -542,7 +542,7 @@ export function Client() {
                     type="text"
                     value={formData.beneficiaire}
                     onChange={(e) => setFormData({ ...formData, beneficiaire: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rb-yellow/50 focus:border-transparent"
                     placeholder="Nom du bénéficiaire"
                   />
                 </div>
@@ -552,7 +552,7 @@ export function Client() {
                   <select
                     value={formData.canal}
                     onChange={(e) => setFormData({ ...formData, canal: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rb-yellow/50 focus:border-transparent"
                   >
                     <option value="app">Application mobile</option>
                     <option value="web">Web banking</option>
@@ -568,7 +568,7 @@ export function Client() {
                     type="checkbox"
                     checked={formData.beneficiaire_nouveau}
                     onChange={(e) => setFormData({ ...formData, beneficiaire_nouveau: e.target.checked })}
-                    className="w-4 h-4 text-blue-600 rounded"
+                    className="w-4 h-4 text-rb-yellow-dark rounded"
                   />
                   <span className="text-sm text-gray-700">Nouveau bénéficiaire</span>
                 </label>
@@ -577,7 +577,7 @@ export function Client() {
                     type="checkbox"
                     checked={formData.changement_appareil}
                     onChange={(e) => setFormData({ ...formData, changement_appareil: e.target.checked })}
-                    className="w-4 h-4 text-blue-600 rounded"
+                    className="w-4 h-4 text-rb-yellow-dark rounded"
                   />
                   <span className="text-sm text-gray-700">Appareil différent</span>
                 </label>
@@ -586,7 +586,7 @@ export function Client() {
                     type="checkbox"
                     checked={formData.ip_pays_inhabituel}
                     onChange={(e) => setFormData({ ...formData, ip_pays_inhabituel: e.target.checked })}
-                    className="w-4 h-4 text-blue-600 rounded"
+                    className="w-4 h-4 text-rb-yellow-dark rounded"
                   />
                   <span className="text-sm text-gray-700">Position géographique inhabituelle</span>
                 </label>
@@ -601,7 +601,7 @@ export function Client() {
                   (parseFloat(formData.montant) || 0) > accountBalance ||
                   (parseFloat(formData.montant) || 0) <= 0
                 }
-                className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors touch-manipulation"
+                className="mt-6 w-full bg-rb-yellow text-rb-black py-3 rounded-lg font-medium hover:bg-rb-yellow-dark disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors touch-manipulation"
               >
                 {isLoading ? 'Analyse en cours...' : 'Simuler la transaction'}
               </button>
@@ -661,7 +661,7 @@ export function Client() {
                           ip_pays_inhabituel: false,
                         });
                       }}
-                      className="mt-7 w-full min-h-[48px] touch-manipulation rounded-xl bg-blue-600 py-3.5 text-base font-semibold text-white transition-colors hover:bg-blue-700 active:bg-blue-800 sm:mt-8 sm:rounded-lg"
+                      className="mt-7 w-full min-h-[48px] touch-manipulation rounded-xl bg-rb-yellow py-3.5 text-base font-semibold text-rb-black transition-colors hover:bg-rb-yellow-dark active:bg-rb-yellow-dark sm:mt-8 sm:rounded-lg"
                     >
                       Fermer
                     </button>

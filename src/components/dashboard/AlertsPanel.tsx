@@ -62,33 +62,33 @@ export function AlertsPanel() {
       badge: 'bg-orange-100 text-orange-700'
     },
     info: {
-      bg: 'bg-blue-50',
-      border: 'border-blue-200',
-      icon: 'text-blue-600',
-      badge: 'bg-blue-100 text-blue-700'
+      bg: 'bg-rb-yellow-muted',
+      border: 'border-rb-yellow/40',
+      icon: 'text-rb-yellow-dark',
+      badge: 'bg-rb-yellow/25 text-rb-black'
     }
   };
 
   return (
-    <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
-      <div className="p-3 sm:p-4 border-b border-slate-200 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+      <div className="p-3 sm:p-4 border-b border-neutral-200 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-2 min-w-0">
-          <h2 className="text-base sm:text-lg font-semibold text-slate-900">Alertes en temps réel</h2>
+          <h2 className="text-base sm:text-lg font-semibold text-rb-black">Alertes en temps réel</h2>
           <span className="px-2 py-1 text-xs font-medium text-white bg-red-500 rounded-full">5</span>
         </div>
-        <button type="button" className="text-sm text-blue-600 hover:text-blue-700 font-medium self-start sm:self-auto shrink-0">
+        <button type="button" className="text-sm text-rb-yellow-dark hover:text-rb-black font-medium self-start sm:self-auto shrink-0">
           Voir tout
         </button>
       </div>
 
-      <div className="divide-y divide-slate-200 max-h-96 overflow-y-auto">
+      <div className="divide-y divide-neutral-200 max-h-96 overflow-y-auto">
         {mockAlerts.map((alert) => {
           const styles = severityStyles[alert.severity];
           
           return (
             <div 
               key={alert.id} 
-              className={`p-4 hover:bg-slate-50 transition-colors cursor-pointer ${styles.bg}`}
+              className={`p-4 hover:bg-rb-yellow-muted/40 transition-colors cursor-pointer ${styles.bg}`}
             >
               <div className="flex items-start gap-3">
                 <div className={`flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center ${styles.bg}`}>
@@ -114,17 +114,17 @@ export function AlertsPanel() {
                     <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${styles.badge}`}>
                       {alert.severity === 'critical' ? 'Critique' : alert.severity === 'warning' ? 'Avertissement' : 'Info'}
                     </span>
-                    <span className="text-xs text-slate-500">{alert.time}</span>
+                    <span className="text-xs text-neutral-500">{alert.time}</span>
                   </div>
-                  <h3 className="text-sm font-semibold text-slate-900">{alert.title}</h3>
-                  <p className="text-sm text-slate-600 mt-1">{alert.description}</p>
+                  <h3 className="text-sm font-semibold text-rb-black">{alert.title}</h3>
+                  <p className="text-sm text-neutral-600 mt-1">{alert.description}</p>
                   {alert.transactionId && (
-                    <p className="text-xs text-blue-600 mt-2 font-medium">Ref: {alert.transactionId}</p>
+                    <p className="text-xs text-rb-yellow-dark mt-2 font-medium">Ref: {alert.transactionId}</p>
                   )}
                 </div>
                 
                 <button className="flex-shrink-0 p-2 hover:bg-white/50 rounded-lg transition-colors">
-                  <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>

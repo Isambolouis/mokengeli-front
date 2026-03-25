@@ -1,18 +1,30 @@
 @import "tailwindcss";
 
+/* Thème inspiré de Rawbank : noir, jaune/or, blanc — https://rawbank.com/ */
 @theme {
-  --color-primary: #0f172a;
-  --color-primary-light: #1e293b;
-  --color-accent: #3b82f6;
-  --color-accent-hover: #2563eb;
-  --color-danger: #ef4444;
-  --color-warning: #f59e0b;
-  --color-success: #22c55e;
+  --color-rb-black: #0a0a0a;
+  --color-rb-black-soft: #141414;
+  --color-rb-black-muted: #262626;
+  --color-rb-yellow: #e8b923;
+  --color-rb-yellow-bright: #f5d03a;
+  --color-rb-yellow-dark: #c9a010;
+  --color-rb-yellow-muted: #fef9e8;
+  --color-rb-page: #f7f7f5;
+  --color-rb-white: #ffffff;
+  --color-rb-ink: #0a0a0a;
+  --color-rb-ink-muted: #525252;
+  --color-primary: #0a0a0a;
+  --color-primary-light: #141414;
+  --color-accent: #e8b923;
+  --color-accent-hover: #c9a010;
+  --color-danger: #dc2626;
+  --color-warning: #d97706;
+  --color-success: #16a34a;
   --color-surface: #ffffff;
-  --color-surface-dark: #f8fafc;
-  --color-text: #0f172a;
-  --color-text-muted: #64748b;
-  --color-border: #e2e8f0;
+  --color-surface-dark: #f7f7f5;
+  --color-text: #0a0a0a;
+  --color-text-muted: #737373;
+  --color-border: #e5e5e5;
 }
 
 html {
@@ -29,7 +41,6 @@ body {
   color: var(--color-text);
 }
 
-/* Encoches / barres système (mobile) */
 .safe-area-pad {
   padding-left: max(0px, env(safe-area-inset-left));
   padding-right: max(0px, env(safe-area-inset-right));
@@ -38,19 +49,17 @@ body {
 
 :root {
   --scrollbar-size: 10px;
-  --scrollbar-thumb: rgba(100, 116, 139, 0.55); /* var(--color-text-muted) */
-  --scrollbar-thumb-hover: rgba(100, 116, 139, 0.85);
-  --scrollbar-track: rgba(226, 232, 240, 0.22); /* var(--color-border) */
-  --scrollbar-active: rgba(59, 130, 246, 0.72); /* var(--color-accent) */
+  --scrollbar-thumb: rgba(232, 185, 35, 0.45);
+  --scrollbar-thumb-hover: rgba(232, 185, 35, 0.75);
+  --scrollbar-track: rgba(10, 10, 10, 0.06);
+  --scrollbar-active: rgba(201, 160, 16, 0.85);
 }
 
-/* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
-/* Chrome, Edge, Safari */
 *::-webkit-scrollbar {
   width: var(--scrollbar-size);
   height: var(--scrollbar-size);
@@ -64,7 +73,7 @@ body {
 *::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
   border-radius: 9999px;
-  border: 2px solid var(--scrollbar-track); /* crée un effet "gouttière" */
+  border: 2px solid var(--scrollbar-track);
   background-clip: padding-box;
 }
 

@@ -92,14 +92,14 @@ export function TransactionTable({ transactions }: TransactionTableProps) {
   };
 
   return (
-    <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
-      <div className="p-3 sm:p-4 border-b border-slate-200 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <h2 className="text-base sm:text-lg font-semibold text-slate-900">Transactions récentes</h2>
+    <div className="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+      <div className="p-3 sm:p-4 border-b border-neutral-200 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h2 className="text-base sm:text-lg font-semibold text-neutral-900">Transactions récentes</h2>
         <div className="flex items-center gap-2 shrink-0">
-          <button type="button" className="px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors">
+          <button type="button" className="px-3 py-1.5 text-sm font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 rounded-lg transition-colors">
             Exporter
           </button>
-          <button type="button" className="px-3 py-1.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
+          <button type="button" className="px-3 py-1.5 text-sm font-medium text-rb-black bg-rb-yellow hover:bg-rb-yellow-dark rounded-lg transition-colors">
             Filtrer
           </button>
         </div>
@@ -107,50 +107,50 @@ export function TransactionTable({ transactions }: TransactionTableProps) {
 
       <div className="overflow-x-auto">
         <table className="w-full min-w-[720px]">
-          <thead className="bg-slate-50 border-b border-slate-200">
+          <thead className="bg-rb-page border-b border-neutral-200">
             <tr>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-600 uppercase tracking-wider">
                 <button 
                   onClick={() => handleSort('date_transaction')}
-                  className="flex items-center hover:text-slate-900"
+                  className="flex items-center hover:text-neutral-900"
                 >
                   Date <SortIcon field="date_transaction" />
                 </button>
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-600 uppercase tracking-wider">
                 Transaction
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-600 uppercase tracking-wider">
                 Client
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-600 uppercase tracking-wider">
                 Type
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-600 uppercase tracking-wider">
                 <button 
                   onClick={() => handleSort('montant')}
-                  className="flex items-center hover:text-slate-900"
+                  className="flex items-center hover:text-neutral-900"
                 >
                   Montant <SortIcon field="montant" />
                 </button>
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-600 uppercase tracking-wider">
                 Canal
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-600 uppercase tracking-wider">
                 <button 
                   onClick={() => handleSort('riskScore')}
-                  className="flex items-center hover:text-slate-900"
+                  className="flex items-center hover:text-neutral-900"
                 >
                   Risque <SortIcon field="riskScore" />
                 </button>
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-600 uppercase tracking-wider">
                 Statut
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-200">
+          <tbody className="divide-y divide-neutral-200">
             {sortedTransactions.map((tx, index) => {
               const riskScore = calculateRiskScore(tx);
               const risk = getRiskLevel(riskScore);
@@ -159,30 +159,30 @@ export function TransactionTable({ transactions }: TransactionTableProps) {
               return (
                 <tr 
                   key={index}
-                  className="hover:bg-slate-50 transition-colors cursor-pointer"
+                  className="hover:bg-rb-page transition-colors cursor-pointer"
                   onClick={() => setSelectedTransaction(tx)}
                 >
-                  <td className="px-4 py-3 text-sm text-slate-600">
+                  <td className="px-4 py-3 text-sm text-neutral-600">
                     {new Date(meta.date_transaction).toLocaleString('fr-FR')}
                   </td>
-                  <td className="px-4 py-3 text-sm font-medium text-slate-900">
+                  <td className="px-4 py-3 text-sm font-medium text-neutral-900">
                     {meta.numero_transaction}
                   </td>
-                  <td className="px-4 py-3 text-sm text-slate-600">
+                  <td className="px-4 py-3 text-sm text-neutral-600">
                     {meta.id_client}
                   </td>
-                  <td className="px-4 py-3 text-sm text-slate-600">
+                  <td className="px-4 py-3 text-sm text-neutral-600">
                     {meta.type_transaction}
                   </td>
-                  <td className="px-4 py-3 text-sm font-semibold text-slate-900">
+                  <td className="px-4 py-3 text-sm font-semibold text-neutral-900">
                     {meta.montant.toLocaleString('fr-FR')} {meta.devise}
                   </td>
-                  <td className="px-4 py-3 text-sm text-slate-600">
+                  <td className="px-4 py-3 text-sm text-neutral-600">
                     {meta.canal}
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
-                      <div className="w-16 h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="w-16 h-2 bg-neutral-200 rounded-full overflow-hidden">
                         <div 
                           className={`h-full rounded-full ${
                             riskScore >= 75 ? 'bg-red-500' :
@@ -235,13 +235,13 @@ function TransactionDetailModal({ transaction, onClose }: { transaction: Transac
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={onClose}>
       <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl" onClick={e => e.stopPropagation()}>
-        <div className="p-4 sm:p-6 border-b border-slate-200 flex items-start gap-3 justify-between">
+        <div className="p-4 sm:p-6 border-b border-neutral-200 flex items-start gap-3 justify-between">
           <div>
-            <h3 className="text-xl font-bold text-slate-900">Détails de la transaction</h3>
-            <p className="text-sm text-slate-500">{meta.numero_transaction}</p>
+            <h3 className="text-xl font-bold text-neutral-900">Détails de la transaction</h3>
+            <p className="text-sm text-neutral-500">{meta.numero_transaction}</p>
           </div>
-          <button onClick={onClose} className="w-10 h-10 rounded-lg hover:bg-slate-100 flex items-center justify-center transition-colors">
-            <svg className="w-5 h-5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <button onClick={onClose} className="w-10 h-10 rounded-lg hover:bg-neutral-100 flex items-center justify-center transition-colors">
+            <svg className="w-5 h-5 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -249,49 +249,49 @@ function TransactionDetailModal({ transaction, onClose }: { transaction: Transac
 
         <div className="p-4 sm:p-6 space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-slate-50 rounded-lg p-4">
-              <p className="text-xs font-medium text-slate-500 uppercase">Montant</p>
-              <p className="text-2xl font-bold text-slate-900">{meta.montant.toLocaleString('fr-FR')} {meta.devise}</p>
+            <div className="bg-rb-page rounded-lg p-4">
+              <p className="text-xs font-medium text-neutral-500 uppercase">Montant</p>
+              <p className="text-2xl font-bold text-neutral-900">{meta.montant.toLocaleString('fr-FR')} {meta.devise}</p>
             </div>
-            <div className="bg-slate-50 rounded-lg p-4">
-              <p className="text-xs font-medium text-slate-500 uppercase">Score de risque</p>
+            <div className="bg-rb-page rounded-lg p-4">
+              <p className="text-xs font-medium text-neutral-500 uppercase">Score de risque</p>
               <p className="text-2xl font-bold text-orange-600">{riskScore}%</p>
             </div>
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-slate-900 mb-3">Métadonnées</h4>
+            <h4 className="text-sm font-semibold text-neutral-900 mb-3">Métadonnées</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-              <div><span className="text-slate-500">Client:</span> <span className="font-medium text-slate-900">{meta.id_client}</span></div>
-              <div><span className="text-slate-500">Type:</span> <span className="font-medium text-slate-900">{meta.type_transaction}</span></div>
-              <div><span className="text-slate-500">Canal:</span> <span className="font-medium text-slate-900">{meta.canal}</span></div>
-              <div><span className="text-slate-500">Date:</span> <span className="font-medium text-slate-900">{new Date(meta.date_transaction).toLocaleString('fr-FR')}</span></div>
+              <div><span className="text-neutral-500">Client:</span> <span className="font-medium text-neutral-900">{meta.id_client}</span></div>
+              <div><span className="text-neutral-500">Type:</span> <span className="font-medium text-neutral-900">{meta.type_transaction}</span></div>
+              <div><span className="text-neutral-500">Canal:</span> <span className="font-medium text-neutral-900">{meta.canal}</span></div>
+              <div><span className="text-neutral-500">Date:</span> <span className="font-medium text-neutral-900">{new Date(meta.date_transaction).toLocaleString('fr-FR')}</span></div>
             </div>
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-slate-900 mb-3">Intelligence réseau</h4>
+            <h4 className="text-sm font-semibold text-neutral-900 mb-3">Intelligence réseau</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className={`p-3 rounded-lg ${event.network_intelligence.ip_sur_liste_noire ? 'bg-red-50 border border-red-200' : 'bg-slate-50'}`}>
-                <p className="text-xs text-slate-500">IP sur liste noire</p>
+              <div className={`p-3 rounded-lg ${event.network_intelligence.ip_sur_liste_noire ? 'bg-red-50 border border-red-200' : 'bg-rb-page'}`}>
+                <p className="text-xs text-neutral-500">IP sur liste noire</p>
                 <p className={`font-semibold ${event.network_intelligence.ip_sur_liste_noire ? 'text-red-600' : 'text-emerald-600'}`}>
                   {event.network_intelligence.ip_sur_liste_noire ? 'Oui' : 'Non'}
                 </p>
               </div>
-              <div className={`p-3 rounded-lg ${event.network_intelligence.ip_datacenter ? 'bg-orange-50 border border-orange-200' : 'bg-slate-50'}`}>
-                <p className="text-xs text-slate-500">IP Datacenter</p>
+              <div className={`p-3 rounded-lg ${event.network_intelligence.ip_datacenter ? 'bg-orange-50 border border-orange-200' : 'bg-rb-page'}`}>
+                <p className="text-xs text-neutral-500">IP Datacenter</p>
                 <p className={`font-semibold ${event.network_intelligence.ip_datacenter ? 'text-orange-600' : 'text-emerald-600'}`}>
                   {event.network_intelligence.ip_datacenter ? 'Oui' : 'Non'}
                 </p>
               </div>
-              <div className={`p-3 rounded-lg ${event.anonymization_detection.tor_detecte ? 'bg-red-50 border border-red-200' : 'bg-slate-50'}`}>
-                <p className="text-xs text-slate-500">TOR Détecté</p>
+              <div className={`p-3 rounded-lg ${event.anonymization_detection.tor_detecte ? 'bg-red-50 border border-red-200' : 'bg-rb-page'}`}>
+                <p className="text-xs text-neutral-500">TOR Détecté</p>
                 <p className={`font-semibold ${event.anonymization_detection.tor_detecte ? 'text-red-600' : 'text-emerald-600'}`}>
                   {event.anonymization_detection.tor_detecte ? 'Oui' : 'Non'}
                 </p>
               </div>
-              <div className={`p-3 rounded-lg ${event.anonymization_detection.vpn_detecte ? 'bg-orange-50 border border-orange-200' : 'bg-slate-50'}`}>
-                <p className="text-xs text-slate-500">VPN Détecté</p>
+              <div className={`p-3 rounded-lg ${event.anonymization_detection.vpn_detecte ? 'bg-orange-50 border border-orange-200' : 'bg-rb-page'}`}>
+                <p className="text-xs text-neutral-500">VPN Détecté</p>
                 <p className={`font-semibold ${event.anonymization_detection.vpn_detecte ? 'text-orange-600' : 'text-emerald-600'}`}>
                   {event.anonymization_detection.vpn_detecte ? 'Oui' : 'Non'}
                 </p>
@@ -300,31 +300,31 @@ function TransactionDetailModal({ transaction, onClose }: { transaction: Transac
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-slate-900 mb-3">Biométrie comportementale</h4>
+            <h4 className="text-sm font-semibold text-neutral-900 mb-3">Biométrie comportementale</h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
-              <div className="bg-slate-50 rounded-lg p-3">
-                <p className="text-xs text-slate-500">Durée session</p>
-                <p className="font-semibold text-slate-900">{event.behavioral_biometrics_ueba.duree_session_min} min</p>
+              <div className="bg-rb-page rounded-lg p-3">
+                <p className="text-xs text-neutral-500">Durée session</p>
+                <p className="font-semibold text-neutral-900">{event.behavioral_biometrics_ueba.duree_session_min} min</p>
               </div>
-              <div className="bg-slate-50 rounded-lg p-3">
-                <p className="text-xs text-slate-500">Écrans session</p>
-                <p className="font-semibold text-slate-900">{event.behavioral_biometrics_ueba.nb_ecrans_session}</p>
+              <div className="bg-rb-page rounded-lg p-3">
+                <p className="text-xs text-neutral-500">Écrans session</p>
+                <p className="font-semibold text-neutral-900">{event.behavioral_biometrics_ueba.nb_ecrans_session}</p>
               </div>
-              <div className="bg-slate-50 rounded-lg p-3">
-                <p className="text-xs text-slate-500">Délai OTP</p>
-                <p className="font-semibold text-slate-900">{event.behavioral_biometrics_ueba.delai_otp_s}s</p>
+              <div className="bg-rb-page rounded-lg p-3">
+                <p className="text-xs text-neutral-500">Délai OTP</p>
+                <p className="font-semibold text-neutral-900">{event.behavioral_biometrics_ueba.delai_otp_s}s</p>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-4 border-t border-slate-200">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-4 border-t border-neutral-200">
             <button type="button" className="flex-1 px-4 py-2.5 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700 transition-colors">
               Approuver
             </button>
             <button type="button" className="flex-1 px-4 py-2.5 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-colors">
               Rejeter
             </button>
-            <button type="button" className="sm:flex-initial px-4 py-2.5 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200 transition-colors">
+            <button type="button" className="sm:flex-initial px-4 py-2.5 bg-neutral-100 text-neutral-700 font-medium rounded-lg hover:bg-neutral-200 transition-colors">
               En attente
             </button>
           </div>
